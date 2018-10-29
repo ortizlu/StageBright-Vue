@@ -9,10 +9,12 @@
     <ul>
       <li v-for="item in items">{{item.title}}</li>
     </ul>
+    <button v-on:click="sayHi('Luis')">HELLO</button>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'Splashscreen',
     data() {
@@ -33,6 +35,11 @@
             title: 'Item Three'
           }
         ]
+      }
+    },
+    methods: {
+      sayHi: (name) => {
+        alert('hello ' + name)
       }
     }
   }
