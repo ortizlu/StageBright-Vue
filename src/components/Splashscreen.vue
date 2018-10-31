@@ -1,8 +1,6 @@
 <template>
   <div class="home-container">
-    <nav>
-      <h1>Stagebright</h1>
-    </nav>
+    <Header></Header>
     <div class="home-photo">
       <h1 class="text-light large">Stagebright</h1>
       <h2 class="text-light medium">Showcase yourself</h2>
@@ -12,8 +10,13 @@
 </template>
 
 <script>
+import Header from './Header.vue'
+
 export default {
-  name: 'Splashscreen'
+  name: 'Splashscreen',
+  components: {
+    Header
+  }
 }
 </script>
 
@@ -32,7 +35,7 @@ a {
   padding: 0;
 }
 
-nav {
+/* nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -47,7 +50,7 @@ nav {
 
 nav h1 {
   color: white;
-}
+} */
 
 .home-photo {
   display: flex;

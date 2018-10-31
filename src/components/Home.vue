@@ -1,4 +1,7 @@
 <template>
+<div class="home">
+  <Header></Header>
+
 <!-- <ul v-if="posts && posts.length">
   <li v-for="post of posts">
     <p>{{post.title}}</p>
@@ -55,18 +58,22 @@
     </b-carousel>
 
     <p class="mt-4">
-      Slide #: {{ slide }}<br>
+      Slide #: {{ slide }}<br></br>
       Sliding: {{ sliding }}
     </p>
 
   </div>
-
+</div>
 </template>
 
 <script>
 import axios from 'axios'
+import Header from './Header.vue'
 
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       slide: 0,
@@ -97,3 +104,35 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home {
+  margin-top: 77px;
+}
+
+#__BVID__5 {
+  height: 100vh;
+}
+
+#__BVID__5::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 56%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+#__BVID__5 img {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+</style>
+
