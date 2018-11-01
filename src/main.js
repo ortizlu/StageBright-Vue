@@ -7,6 +7,7 @@ import Splashscreen from './components/Splashscreen.vue'
 import Vuecarousel from 'vue-carousel'
 
 Vue.use(VueRouter)
+Vue.use(BootstrapVue)
 Vue.use(Vuecarousel)
 
 

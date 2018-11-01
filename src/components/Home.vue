@@ -2,19 +2,11 @@
 <div class="home">
   <Header></Header>
     <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="false">
-    <slide>
+    <slide v-for="post in posts">
       <div class="image">
       <div class="image-text">
-          <h3>My Picture</h3>
-          <p>By: Orange Girl</p>
-        </div>
-      </div>
-    </slide>
-    <slide>
-    <div class="image">
-      <div class="image-text">
-          <h3>My Picture</h3>
-          <p>By: Orange Girl</p>
+          <h3>{{post.title}}</h3>
+          <p>{{post.author.name}}</p>
         </div>
       </div>
     </slide>
@@ -52,9 +44,6 @@ export default {
 </script>
 
 <style>
-  .home {
-    margin-top: 77px;
-  }
 
 .image {
   background-image: url('https://images.unsplash.com/photo-1540971747891-114758ab4a90?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=29943cc8315050b8b03195bd3d4ea104&auto=format&fit=crop&w=800&q=60');
@@ -65,7 +54,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:calc(100vh - 77px);
+  height:calc(100vh - 56px);
+  position: relative;
 }
 
 .image-text {
