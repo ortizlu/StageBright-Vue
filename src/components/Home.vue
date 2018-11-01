@@ -1,68 +1,24 @@
 <template>
 <div class="home">
   <Header></Header>
-
-<!-- <ul v-if="posts && posts.length">
-  <li v-for="post of posts">
-    <p>{{post.title}}</p>
-  </li>
-</ul> -->
-
-<!-- Text slides with image -->
-      <!-- <b-carousel-slide caption="First slide"
-                        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide> -->
-
-      <!-- Slides with custom text -->
-      <!-- <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide> -->
-
-      <!-- Slides with image only -->
-      <!-- <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-      </b-carousel-slide> -->
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <!-- <b-carousel-slide>
-        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480"
-             src="https://picsum.photos/1024/480/?image=55" alt="image slot">
-      </b-carousel-slide> -->
-
- <div>
-    <b-carousel id="carousel1"
-                style="text-shadow: 1px 1px 2px #333;"
-                controls
-                indicators
-                background="#ababab"
-                :interval="4000"
-                img-width="1024"
-                img-height="480"
-                v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
-    >
-
-      
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-src="https://picsum.photos/1024/480/?image=58" img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eros felis, tincidunt a tincidunt eget, convallis vel est. Ut pellentesque
-          ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
-
-    </b-carousel>
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br></br>
-      Sliding: {{ sliding }}
-    </p>
-
-  </div>
+    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="false">
+    <slide>
+      <div class="image">
+      <div class="image-text">
+          <h3>My Picture</h3>
+          <p>By: Orange Girl</p>
+        </div>
+      </div>
+    </slide>
+    <slide>
+    <div class="image">
+      <div class="image-text">
+          <h3>My Picture</h3>
+          <p>By: Orange Girl</p>
+        </div>
+      </div>
+    </slide>
+  </carousel>
 </div>
 </template>
 
@@ -76,17 +32,7 @@ export default {
   },
   data() {
     return {
-      slide: 0,
-      sliding: null,
       posts: []
-    }
-  },
-  methods: {
-    onSlideStart(slide) {
-      this.sliding = true
-    },
-    onSlideEnd(slide) {
-      this.sliding = false
     }
   },
 
@@ -105,34 +51,36 @@ export default {
 }
 </script>
 
-<style scoped>
-.home {
-  margin-top: 77px;
-}
+<style>
+  .home {
+    margin-top: 77px;
+  }
 
-#__BVID__5 {
-  height: 100vh;
-}
-
-#__BVID__5::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.6) 56%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-}
-
-#__BVID__5 img {
+.image {
+  background-image: url('https://images.unsplash.com/photo-1540971747891-114758ab4a90?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=29943cc8315050b8b03195bd3d4ea104&auto=format&fit=crop&w=800&q=60');
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
   height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:calc(100vh - 77px);
+}
+
+.image-text {
+  color: white;
+}
+
+.VueCarousel-pagination {
+  position: absolute;
+  bottom: 0;
+}
+
+.VueCarousel-dot-button {
+    width: 20px;
+    height: 20px;
+    background: rgb(0, 0, 0);
 }
 </style>
 

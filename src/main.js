@@ -4,9 +4,11 @@ import BootstrapVue from 'bootstrap-vue'
 import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
 import Splashscreen from './components/Splashscreen.vue'
+import Vuecarousel from 'vue-carousel'
 
 Vue.use(VueRouter)
-Vue.use(BootstrapVue)
+Vue.use(Vuecarousel)
+
 
 const routes = [
   { path: '/home', component: Home },
